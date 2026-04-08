@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bhavya Ravi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+  <div class="container">
+
+    <div class="header">
+      <img
+        class="avatar"
+        src="https://media.licdn.com/dms/image/v2/D5603AQHCaincQteh1Q/profile-displayphoto-scale_400_400/B56Zly63RaIAAk-/0/1758569659178?e=1776902400&v=beta&t=ZlpAcnRTadkaQlPZEbBqrFrDUGsKXeTZzd45ElXfL_k"
+        alt="Bhavya Ravi"
+      />
+      <h1 class="name">Bhavya Ravi</h1>
+      <p class="subtitle">Informatics &amp; Political Science Student</p>
+    </div>
+
+    <nav class="nav">
+      <button class="nav-btn active" data-tab="about">about</button>
+      <button class="nav-btn" data-tab="projects">projects</button>
+      <button class="nav-btn" data-tab="updates">updates</button>
+    </nav>
+
+    <!-- About -->
+    <div class="panel active" id="panel-about">
+      <div class="about-card">
+        <p>Hi! I'm currently studying Informatics and Political Science, exploring the intersection of technology and public policy.</p>
+        <p>I'm passionate about creating meaningful digital experiences and understanding how technology shapes society. Currently building my skills and looking forward to launching my first projects.</p>
+        <div class="highlight">Currently learning: UI/UX Design</div>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="panel" id="panel-projects">
+      <div class="project-card main">
+        <h3>Coming Soon</h3>
+        <p>Currently working on building my first projects. Check back soon for updates!</p>
+      </div>
+      <div class="project-card placeholder">
+        <p>More projects in development...</p>
+      </div>
+    </div>
+
+    <!-- Updates -->
+    <div class="panel" id="panel-updates">
+      <div class="update-card green">
+        <p class="update-date">April 2026</p>
+        <p>Diving deep into UI/UX design principles. Excited to start applying these skills to real projects.</p>
+      </div>
+      <div class="update-card yellow">
+        <p class="update-date">Spring 2026</p>
+        <p>Balancing coursework in Informatics and Political Science. Learning how tech and policy intersect.</p>
+      </div>
+      <div class="update-card orange">
+        <p class="update-date">Recent</p>
+        <p>Building this portfolio site as my first step. More projects coming soon!</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('.nav-btn');
+    const panels  = document.querySelectorAll('.panel');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tab = btn.dataset.tab;
+
+        buttons.forEach(b => b.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+
+        btn.classList.add('active');
+        const target = document.getElementById('panel-' + tab);
+        // re-trigger animation
+        target.style.animation = 'none';
+        target.offsetHeight; // reflow
+        target.style.animation = '';
+        target.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
