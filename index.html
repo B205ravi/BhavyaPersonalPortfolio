@@ -4,37 +4,65 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bhavya Ravi</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css"> 
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Cabinet+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
 </head>
 <body>
+ 
+  <!-- Decorative floating dots -->
+  <div class="dot dot-1"></div>
+  <div class="dot dot-2"></div>
+  <div class="dot dot-3"></div>
+  <div class="dot dot-4"></div>
+  <div class="dot dot-5"></div>
+ 
+  <!-- Squiggle SVG accent -->
+  <svg class="squiggle" width="60" height="200" viewBox="0 0 60 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M30 0 C50 25, 10 50, 30 75 C50 100, 10 125, 30 150 C50 175, 10 185, 30 200" stroke="#e8829a" stroke-width="3" stroke-linecap="round" fill="none"/>
+  </svg>
+ 
   <div class="container">
-
+ 
     <div class="header">
-      <img
-        class="avatar"
-        src="https://media.licdn.com/dms/image/v2/D5603AQHCaincQteh1Q/profile-displayphoto-scale_400_400/B56Zly63RaIAAk-/0/1758569659178?e=1776902400&v=beta&t=ZlpAcnRTadkaQlPZEbBqrFrDUGsKXeTZzd45ElXfL_k"
-        alt="Bhavya Ravi"
-      />
+      <div class="avatar-wrap">
+        <img
+          class="avatar"
+          src="https://media.licdn.com/dms/image/v2/D5603AQHCaincQteh1Q/profile-displayphoto-scale_400_400/B56Zly63RaIAAk-/0/1758569659178?e=1776902400&v=beta&t=ZlpAcnRTadkaQlPZEbBqrFrDUGsKXeTZzd45ElXfL_k"
+          alt="Bhavya Ravi"
+        />
+      </div>
       <h1 class="name">Bhavya Ravi</h1>
       <p class="subtitle">Informatics &amp; Political Science Student</p>
+      <div class="sparkles">
+        <span class="sparkle">✦</span>
+        <span class="sparkle">✦</span>
+        <span class="sparkle">✦</span>
+      </div>
     </div>
-
+ 
     <nav class="nav">
       <button class="nav-btn active" data-tab="about">about</button>
       <button class="nav-btn" data-tab="projects">projects</button>
       <button class="nav-btn" data-tab="updates">updates</button>
     </nav>
-
+ 
     <!-- About -->
     <div class="panel active" id="panel-about">
       <div class="about-card">
         <p>Hi! I'm currently studying Informatics and Political Science, exploring the intersection of technology and public policy.</p>
-        <p>I'm passionate about creating meaningful digital experiences and understanding how technology shapes society. Currently building my skills and looking forward to launching my first projects.</p>
+        <p>I'm passionate about creating meaningful digital experiences and understanding how technology shapes society. Currently building my skills and getting ready to launch my first projects.</p>
         <div class="highlight">Currently learning: UI/UX Design</div>
+        <p class="skills-label">things I can do</p>
+        <div class="skills-grid">
+          <span class="skill-pill python">🐍 Python</span>
+          <span class="skill-pill html">🌐 HTML &amp; CSS</span>
+          <span class="skill-pill data">📊 Data Analysis</span>
+          <span class="skill-pill policy">⚖️ Tech &amp; Policy</span>
+          <span class="skill-pill design">✨ UI/UX Design</span>
+        </div>
       </div>
     </div>
-
+ 
     <!-- Projects -->
     <div class="panel" id="panel-projects">
       <div class="project-card main">
@@ -45,9 +73,14 @@
         <p>More projects in development...</p>
       </div>
     </div>
-
+ 
     <!-- Updates -->
     <div class="panel" id="panel-updates">
+      <div class="updates-intro">
+        <span class="updates-icon">🌱</span>
+        <h3>Updates are on the way</h3>
+        <p>This space is warming up. Check back soon — there's a lot in the works!</p>
+      </div>
       <div class="update-card green">
         <p class="update-date">April 2026</p>
         <p>Diving deep into UI/UX design principles. Excited to start applying these skills to real projects.</p>
@@ -61,25 +94,24 @@
         <p>Building this portfolio site as my first step. More projects coming soon!</p>
       </div>
     </div>
-
+ 
   </div>
-
+ 
   <script>
     const buttons = document.querySelectorAll('.nav-btn');
     const panels  = document.querySelectorAll('.panel');
-
+ 
     buttons.forEach(btn => {
       btn.addEventListener('click', () => {
         const tab = btn.dataset.tab;
-
+ 
         buttons.forEach(b => b.classList.remove('active'));
         panels.forEach(p => p.classList.remove('active'));
-
+ 
         btn.classList.add('active');
         const target = document.getElementById('panel-' + tab);
-        // re-trigger animation
         target.style.animation = 'none';
-        target.offsetHeight; // reflow
+        target.offsetHeight;
         target.style.animation = '';
         target.classList.add('active');
       });
@@ -87,3 +119,4 @@
   </script>
 </body>
 </html>
+ 
